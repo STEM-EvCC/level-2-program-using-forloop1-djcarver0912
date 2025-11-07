@@ -1,63 +1,22 @@
-"""mission_names = ['Apollo 11', 'Challenger', 'Curiosity Rover', 'Viking 1', 'Mars Pathfinder', 'Hubble Telescope', 'Apollo 13']
+mission_names = ['Apollo 11', 'Challenger', 'Curiosity Rover', 'Viking 1', 'Mars Pathfinder', 'Hubble Telescope', 'Apollo 13']
 mission_years = [1969, 1986, 2012, 1975, 1996, 1990, 1970]
-mission_success = [True, False, True, True, True, True, False]"""
-
-#use x to print out the entire list when using for
-ghost_list = ["Samara", "Casper", "Slimer", "Beetlejuice"]
-for x in ghost_list:
-    print(x)
-
-for x in "Beetlejuice": #You can use x to print out every character in a string
-    print(x)
-
-for x in ghost_list:
-    print(x)
-    if x == "Casper":
-        break #break will stop a loop in for loops. Stop the condition. 
-    print(x)
-
-for x in ghost_list:
-    if x == "Slimer":
-        continue  #Continue will skip the current condition. it will continue to the next line. So, it will skip "slimer"
-    print(x)
+mission_success = [True, False, True, True, True, True, False]
 
 
-for x in range(7): #You can print out ranges, this will print out 0-6 totalling 7 digits. 
-    print(x)
-else:
-    print("Finished Program")  #This else statement will make it so the print statement happens after we arrive at the specified digit.
-#If you put a break before your else, the else will not print. 
+#Count the total number of missions
+total_missions = (len(mission_names)) #So here we will count the total number of values/items within mission_names
+print("Total Number of Missions: ", + total_missions) #Then as requested, we are outputting the number of missions.
 
+#Count the total Number of Successful missions
+successful_missions = sum(mission_success) #Honestly, courtesy of my girlfriend the beginning indie game dev, I got some help with using "sum" to count the True values. 
+print("Number of Successful Missions: ", + successful_missions) #Here we are outputting the number of successful missions. Doing this by counting every True value in mission_success
 
-movie_list = ["Ring", "Casper", "Ghostbusters", "Beetlejuice"]
+#Calulate the mission success rate
+success_rate = (successful_missions / total_missions) * 100 #Formula here for calculating how many missions were successful over how many missions total.
+print(f"Success Rate: {success_rate: .2f}%") #This will print the success rate evaluated above limitied to two decimal points. I picked up the .2f from my CS 110 class, pretty handy, also, I dont want to talk about how long it took me to put the % key in. 
 
-for x in ghost_list:
-    for y in movie_list:  #X will have the same value until it runs out of elements (Partners). So Samara, until is is paired with all movie names here. 
-        print(x, y)
-
-#Write a program
-##############
-#Fizzbuzz program - basic interview program (oldschool)
-for fizzbuzz in range(100):
-#if numeber is divisable by 3 print out fizz
-#if number is divisbale by 5 print out buzz
-#if number is divisable by both 3 and 5, print out fizzbuzz.
-    if fizzbuzz % 3 == 0 and fizzbuzz % 5 == 0: #Using % key means divisable by
-        print("Fizzbuzz") 
-
-    elif fizzbuzz % 5 == 0: 
-        print("buzz")
-
-    elif fizzbuzz % 3 == 0:   #If a number is divisbale by another there is nothing left, so the result check would be 0
-        print("Fizz")
-
-    else:
-        print(str(fizzbuzz)) 
-
-
-#If statement for earlier tham 2000. Use less than. Not less than or equal to.
-#use a lot of len?
-#You can do this without continue.
-#No breaks either. 
-#Output needs to match. 
-#Algorithm. 
+#Count number of missions before 2000
+print("Missions launched before the year 2000: ")
+for i in range(len(mission_years)): #here we are looking at a range, the range is the number of values in mission_years. Only for loop in the code thank goodness. 
+    if mission_years[i] < 2000: #If the mission year is less than 2000, it is counted, if not, then it will not be a factor. 
+        print(mission_names[i]) #Finally, we will output the number of missions launched before the year 2000
